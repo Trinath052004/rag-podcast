@@ -4,4 +4,4 @@ from fastapi import APIRouter
 router = APIRouter()
 
 # Import all routers to ensure they are registered
-from app.routes import pdf_routes, podcast_routes, voice_routes, auth_routes
+from app.routes import pdf_routes, podcast_routes, voice_routes, auth_routes, qdrant_routes

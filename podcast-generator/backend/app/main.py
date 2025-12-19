@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import pdf_routes, podcast_routes, voice_routes, auth_routes
+from app.routes import pdf_routes, podcast_routes, voice_routes, auth_routes, qdrant_routes
 from app.config import settings
 
 app = FastAPI(
@@ -26,6 +26,7 @@ app.include_router(auth_routes.router, prefix="/api/auth", tags=["Authentication
 app.include_router(pdf_routes.router, prefix="/api/pdf", tags=["PDF Processing"])
 app.include_router(podcast_routes.router, prefix="/api/podcast", tags=["Podcast Generation"])
 app.include_router(voice_routes.router, prefix="/api/voice", tags=["Voice Interaction"])
+app.include_router(qdrant_routes.router, prefix="/api/qdrant", tags=["Qdrant Vector Database"])
 
 @app.get("/api/health")
 async def health_check():
